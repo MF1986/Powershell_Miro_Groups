@@ -20,4 +20,3 @@ $body = @"
 }
 "@
 Invoke-RestMethod -Method Patch -Uri "https://miro.com/api/v1/scim/Groups/$Team" -ContentType "application/json" -Headers @{Authorization = "$Bearer"} -body $body
-Invoke-RestMethod -Method Get -Uri "https://miro.com/api/v1/scim/Groups" -ContentType "application/json" -Headers @{Authorization = "Bearer $bearer "} | select Resources  -ExpandProperty Resources | select displayName,id | Write-Host

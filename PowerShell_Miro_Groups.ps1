@@ -1,7 +1,9 @@
-$Bearer = Read-Host -Prompt 'Paste your SCIM Api token'
+$Bearer = Read-Host -Prompt 'Please paste your SCIM Api token:'
 Invoke-RestMethod -Method Get -Uri "https://miro.com/api/v1/scim/Groups" -ContentType "application/json" -Headers @{Authorization = "Bearer $bearer "} | select Resources  -ExpandProperty Resources | select displayName,id
-$Team = Read-Host -Prompt 'Paste the id that you want to decouple'
-$Name = Read-Host -Prompt 'Match the Security Group Name from your IdP'
+
+$Team = Read-Host -Prompt 'Copy/Paste or type the ID that you want to decouple:'
+$Name = Read-Host -Prompt 'Type and match your Azure AD security group name:'
+
 $body = @"
 {
   "schemas": [
